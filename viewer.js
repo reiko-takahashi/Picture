@@ -1,33 +1,49 @@
-var pictNo = 1;
-var myImg = [];
+window.onload = init;
 
-for(var i =0; i<4; i++){
-  myImg[i] = document.createElement('img');
-  myImg[i].src = 'img/1.jpg';
-}
+function init(){
+  var pictNo = 1;
+  var myImg = [];
+  var myNo = document.getElementById('no');
+  var myPict = document.getElementById('pict');
+  var revBtn = document.getElementById('rev_btn');
+  var fwdBtn = document.getElementById('fwd_btn');
 
-function revBtnClick(){
-  pictNo--;
-  document.getElementById('no').innerHTML = 'No.' + pictNo;
-  document.getElementById('pict').src = 'img/' + pictNo + '.jpg';
 
-  if(pictNo === 1){
-    document.getElementById('rev_btn').disabled = 'disabled';
-  }else if(pictNo === 3){
-    document.getElementById('fwd_btn').disabled = false;
-    document.getElementById('no').className = 'no1';
+  for(var i =0; i<4; i++){
+    myImg[i] = document.createElement('img');
+    myImg[i].src = 'img/' + (i + 1) + '.jpg';
   }
-}
 
-function fwdBtnClick(){
-  pictNo++;
-  document.getElementById('no').innerHTML = 'No.' + pictNo;
-  document.getElementById('pict').src = 'img/'+ pictNo +'.jpg';
+  function showImg(){
+    myNo.innerHTML = 'No.' + pictNo;
+    myPict.src = myImg[pictNo - 1].src;
+  }
 
-  if(pictNo === 4){
-    document.getElementById('no').className = 'no2';
-    document.getElementById('fwd_btn').disabled = 'disabled';
-  }else if(pictNo === 2){
-    document.getElementById('rev_btn').disabled = false;
+  revBtn.addEventListener('click', revBtnClick, false);
+
+  function revBtnClick(){
+    pictNo--;
+    showImg();
+
+    if(pictNo === 1){
+      revBtn.disabled = 'disabled';
+    }else if(pictNo === myImg.length-1){
+      fwdBtn.disabled = false;
+      myNo.className = 'no1';
+    }
+  }
+
+  fwdBtn.onclick = fwdBtnClick;
+
+  function fwdBtnClick(){
+    pictNo++;
+    showImg();
+
+    if(pictNo === myImg.length){
+      myNo.className = 'no2';
+      fwdBtn.disabled = 'disabled';
+    }else if(pictNo === 2){
+      revBtn.disabled = false;
+    }
   }
 }

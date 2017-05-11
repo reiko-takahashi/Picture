@@ -1,8 +1,27 @@
-﻿.no1 {
+
+
+.pict{
+
+}
+
+.no1 {
   color: green;
+  font: 25px arial, sans-serif;
+  word-spacing: 10px;
+  font-variant: small-caps;
 }
 
 .no2 {
   color: red;
-  text-shadow: 2px 2px 1px rgba(255,0,0,0.5);
+  font: 25px arial, sans-serif;
+  font-weight: bold;
+  /*text-shadow: 2px 2px 1px rgba(255,0,0,0.5);*/
+}
+
+.revbtn{
+
+}
+
+.fwdbtn{
+
 }
