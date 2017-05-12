@@ -1,15 +1,37 @@
 ﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<title>簡易画像ビューワ</title>
-<link rel="stylesheet" href="viewer.css">
-<script src="viewer.js"></script>
+  <meta charset="utf-8">
+  <title>簡易画像ビューワ</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.22/css/uikit.min.css" />
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.22/js/uikit.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.22/js/uikit-icons.min.js"></script>
+  <link rel="stylesheet" href="viewer.css">
+  <script src="viewer.js"></script>
 </head>
+
 <body>
-<img id="pict" class="pict" src="img/1.jpg">
-<div id="no" class="no1">No.1</div>
-<button id="rev_btn" class="revbtn" disabled="disabled">←</button>
-<button id="fwd_btn" class="fwdbtn" >→</button>
+  <!--背景に画像を入れたい-->
+  <div class="uk-background-fixed uk-background-center-center uk-height-medium uk-width-large;">
+    <!--中央に寄せる-->
+    <div class="uk-card-header uk-flex uk-flex-center">
+      <!--画像の大きさ調整-->
+      <img id="pict" class="uk-width-large uk-card-header" src="img/1.jpg">
+      <!--文字とボタンの背景が黒くなる-->
+      <div class="uk-card uk-card-secondary uk-card-body ">
+        <!--文字とボタンの間隔調整-->
+        <div class="uk-card-body">
+          <div id="no" class="no1">No.1</div>
+        </div>
+        <!--ボタンの位置調整-->
+        <div class="uk-card-footer">
+          <!--ボタンのアイコンが変わる-->
+          <button id="rev_btn" class="uk-margin-small-right" uk-icon="icon: triangle-left" disabled="disabled"></button>
+          <button id="fwd_btn" class="uk-margin-small-right" uk-icon="icon: triangle-right" ></button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

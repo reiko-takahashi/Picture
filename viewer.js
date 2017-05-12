@@ -8,6 +8,7 @@ function init(){
   var revBtn = document.getElementById('rev_btn');
   var fwdBtn = document.getElementById('fwd_btn');
 
+//myNo.className = 'no1'
 
   for(var i =0; i<4; i++){
     myImg[i] = document.createElement('img');
@@ -17,6 +18,7 @@ function init(){
   function showImg(){
     myNo.innerHTML = 'No.' + pictNo;
     myPict.src = myImg[pictNo - 1].src;
+
   }
 
   revBtn.addEventListener('click', revBtnClick, false);
@@ -29,7 +31,6 @@ function init(){
       revBtn.disabled = 'disabled';
     }else if(pictNo === myImg.length-1){
       fwdBtn.disabled = false;
-      myNo.className = 'no1';
     }
   }
 
@@ -40,7 +41,6 @@ function init(){
     showImg();
 
     if(pictNo === myImg.length){
-      myNo.className = 'no2';
       fwdBtn.disabled = 'disabled';
     }else if(pictNo === 2){
       revBtn.disabled = false;
